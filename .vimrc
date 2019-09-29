@@ -66,11 +66,11 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_preview = 1
-let g:netrw_winsize = 75
+let g:netrw_winsize = 80
 
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * if !isdirectory(expand(@%)) | :Vexplore | :exec "vertical resize ".(&columns / 4). " N" | wincmd w | endif
+  autocmd VimEnter * if !isdirectory(expand(@%)) | :Vexplore | :exec "vertical resize ".(&columns / 5). " N" | wincmd w | endif
 augroup END
 
 
