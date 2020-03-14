@@ -8,6 +8,7 @@ set linebreak
 set nolist
 set encoding=utf8
 
+set backspace=indent,eol,start
 """" START Vundle Configuration
 
 " Disable file type for vundle
@@ -16,29 +17,16 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" let Vundle manage Vundle, required
+Plugin 'preservim/nerdtree'
 Plugin 'gmarik/Vundle.vim'
-
-" Python Extensions
 Plugin 'vim-scripts/indentpython.vim'
-
-" Git Support
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
-
-" Wakatime Plugin
 Plugin 'wakatime/vim-wakatime'
-
-" Themes
 Plugin 'enricobacis/vim-airline-clock'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
 
-" OSX stupid backspace fix
-set backspace=indent,eol,start
-
-call vundle#end()            " required
 filetype plugin indent on    " required
 """" END Vundle Configuration
 
@@ -65,12 +53,15 @@ set smartindent
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
-let g:netrw_preview = 1
+let g:netrw_altv = 1
 let g:netrw_winsize = 80
+let g:netrw_preview = 1
+
+let NERDTreeShowHidden=1
 
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * if !isdirectory(expand(@%)) | :Vexplore | :exec "vertical resize ".(&columns / 5). " N" | wincmd w | endif
+  autocmd VimEnter * if argc() == 0 || !isdirectory(argv()[0]) | NERDTree | wincmd w | endif
 augroup END
 
 
