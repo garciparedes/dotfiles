@@ -3,44 +3,34 @@
 """""""""""""""""""""""""""""""""""""
 
 """" START Vundle Configuration
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'wakatime/vim-wakatime'
+Plug 'valloric/youcompleteme'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'enricobacis/vim-airline-clock'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'psf/black'
+Plug 'rust-lang/rust.vim'
+Plug 'preservim/nerdcommenter'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
+Plug 'jiangmiao/auto-pairs'
 
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'preservim/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-
-Plugin 'kien/ctrlp.vim'
-
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'wakatime/vim-wakatime'
-Plugin 'valloric/youcompleteme'
-
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-
-Plugin 'enricobacis/vim-airline-clock'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'psf/black', { 'tag': '19.10b0' }
-Plugin 'rust-lang/rust.vim'
-
-Plugin 'preservim/nerdcommenter'
-
-call vundle#end()
-filetype plugin indent on    " required
-"""" END Vundle Configuration
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""
 " Configuration Section
@@ -48,7 +38,11 @@ filetype plugin indent on    " required
 
 let mapleader = ","
 
+set hlsearch
+
 syntax on
+colorscheme onedark
+" let g:onedark_termcolors=256
 set wrap
 set linebreak
 set nolist
@@ -75,8 +69,20 @@ set smartindent
 
 " Status bar
 let g:airline_powerline_fonts = 1
-set t_Co=256
-let g:airline_theme = "bubblegum"
+let g:airline_theme = "onedark"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>10 <Plug>AirlineSelectTab10
 
 " line comments
 let g:NERDSpaceDelims = 1
@@ -146,3 +152,22 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Code Hightlight
 let python_highlight_all=1
 syntax on
+
+set tags=tags
+autocmd BufWritePost *.py silent! !ctags -R --python-kinds=-i --languages=python 2&gt; /dev/null &amp;
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
