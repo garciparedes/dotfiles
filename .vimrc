@@ -29,6 +29,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -40,6 +41,8 @@ let mapleader = ","
 
 set hlsearch
 
+set nocompatible
+filetype on
 syntax on
 colorscheme onedark
 " let g:onedark_termcolors=256
@@ -47,6 +50,7 @@ set wrap
 set linebreak
 set nolist
 set encoding=utf8
+set guioptions=
 
 set backspace=indent,eol,start
 
@@ -66,6 +70,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
+
+" Navigation with soft wrap
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " Status bar
 let g:airline_powerline_fonts = 1
@@ -94,8 +102,12 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 80
 let g:netrw_preview = 1
-let NERDTreeShowHidden = 1
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:NERDTreeShowHidden=1
+let NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+nmap ,n :NERDTreeFind<CR>
+nmap ,m :NERDTreeToggle<CR>
 
 augroup ProjectDrawer
   autocmd!
@@ -149,13 +161,6 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "     execfile(activate_this, dict(__file__=activate_this))
 " EOF
 
-" Code Hightlight
-let python_highlight_all=1
-syntax on
-
-set tags=tags
-autocmd BufWritePost *.py silent! !ctags -R --python-kinds=-i --languages=python 2&gt; /dev/null &amp;
-
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -170,4 +175,8 @@ if (empty($TMUX))
   if (has("termguicolors"))
     set termguicolors
   endif
+endif
+
+if has("gui_running")
+    set guifont=Inconsolata\ Nerd\ Font:h13
 endif
