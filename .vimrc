@@ -22,14 +22,15 @@ Plug 'enricobacis/vim-airline-clock'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'psf/black'
+" Plug 'psf/black'
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -40,12 +41,16 @@ call plug#end()
 let mapleader = ","
 
 set hlsearch
+set wildmenu
+set wildmode=full
 
+set termguicolors
 set nocompatible
 filetype on
 syntax on
 colorscheme onedark
-" let g:onedark_termcolors=256
+set colorcolumn=121
+
 set wrap
 set linebreak
 set nolist
@@ -54,11 +59,13 @@ set guioptions=
 
 set backspace=indent,eol,start
 
-" set clipboard=unnamed
 
 " Show linenumbers
 set number
 set ruler
+
+" set mouse=a
+" set clipboard=unnamed
 
 " Always display the status line
 set laststatus=2
@@ -131,6 +138,7 @@ let g:SimpylFold_docstring_preview = 1
 
 " Language specific settings
 
+let g:ale_linters = {'rust': ['rustc']}
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
@@ -161,22 +169,11 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "     execfile(activate_this, dict(__file__=activate_this))
 " EOF
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
 
 if has("gui_running")
     set guifont=Inconsolata\ Nerd\ Font:h13
+endif
+
+if has('mouse_sgr')
+    set ttymouse=sgr
 endif
