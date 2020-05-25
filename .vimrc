@@ -113,8 +113,11 @@ let g:NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-nmap ,n :NERDTreeFind<CR>
-nmap ,m :NERDTreeToggle<CR>
+autocmd VimEnter * silent! lcd %:p:h
+autocmd DirChanged * silent! NERDTreeCWD | wincmd p 
+
+nmap <leader>n :NERDTreeFind<CR>
+nmap <leader>m :NERDTreeToggle<CR>
 
 augroup ProjectDrawer
   autocmd!
