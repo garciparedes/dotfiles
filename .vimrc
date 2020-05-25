@@ -171,7 +171,9 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 if has("gui_running")
-    set guifont=Inconsolata\ Nerd\ Font:h13
+    set guifont="Inconsolata\ Nerd\ Font:h13"
+    set lines=48 columns=164
+    set guioptions=
 endif
 
 if has('mouse_sgr')
