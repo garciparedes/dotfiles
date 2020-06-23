@@ -31,6 +31,7 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
