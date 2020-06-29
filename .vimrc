@@ -63,6 +63,7 @@ set backspace=indent,eol,start
 
 " Show linenumbers
 set number
+set relativenumber
 set ruler
 
 " set mouse=a
