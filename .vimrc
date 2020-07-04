@@ -32,6 +32,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'elzr/vim-json'
+Plug 'danro/rename.vim'
 
 call plug#end()
 
