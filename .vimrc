@@ -81,6 +81,9 @@ set shiftwidth=4
 set expandtab
 set smartindent
 
+set cursorcolumn
+set cursorline
+
 " Navigation with soft wrap
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
