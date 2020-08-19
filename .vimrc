@@ -33,6 +33,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'elzr/vim-json'
 Plug 'danro/rename.vim'
+Plug 'lervag/vimtex
 
 call plug#end()
 
