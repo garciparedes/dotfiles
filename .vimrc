@@ -15,7 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'wakatime/vim-wakatime'
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'enricobacis/vim-airline-clock'
@@ -42,6 +42,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""
 
 let mapleader = ","
+let g:mapleader = ","
 
 set hlsearch
 set wildmenu
@@ -62,14 +63,13 @@ set guioptions=
 
 set backspace=indent,eol,start
 
-
 " Show linenumbers
 set number
 set relativenumber
 set ruler
 
-" set mouse=a
-" set clipboard=unnamed
+set mouse=a
+set clipboard=unnamed
 
 " Always display the status line
 set laststatus=2
@@ -135,10 +135,20 @@ augroup END
 set splitbelow
 set splitright
 
+" Navigating across panes
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Better behavior related with removals and buffers.
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+nnoremap <leader>d "*d
+nnoremap <leader>D "*D
+vnoremap <leader>d "*d
 
 " Folding settings
 set foldmethod=indent
@@ -167,8 +177,10 @@ let g:ycm_semantic_triggers = {'c': ['re!.']}
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
+
+" GUI settings
 if has("gui_running")
-    set guifont="Inconsolata\ Nerd\ Font:h13"
+    set guifont=Inconsolata\ Nerd\ Font:h13
     set lines=48 columns=164
     set guioptions=
 endif
@@ -176,3 +188,12 @@ endif
 if has('mouse_sgr')
     set ttymouse=sgr
 endif
+"
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \ ],
+    \}
