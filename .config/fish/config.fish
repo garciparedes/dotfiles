@@ -24,10 +24,25 @@ set -x BAT_THEME "TwoDark"
 set -x FZF_DEFAULT_COMMAND 'ag -g ""'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
+# Virtualenv setup
+# status --is-interactive; and source (pyenv init -|psub)
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+
 # PATH setup
 set -x PATH $HOME/bin:$PATH
 set -x PATH /usr/local/sbin:$PATH
 set -x PATH $HOME/.cargo/bin:$PATH
+set -x PATH $HOME/.pyenv/bin:$PATH
+set -x PATH $HOME/.poetry/bin:$PATH
+
+# Ubuntu-specific aliases
+# alias pbcopy='xclip -selection clipboard'
+# alias pbpaste='xclip -selection clipboard -o'
+# alias open='xdg-open'
+
+# Global aliases
+alias nodejs=node
+alias charm='pycharm-professional'
 
 # DS aliases
 alias r='r --save'
@@ -36,9 +51,7 @@ alias ipy='jupyter console --kernel=python3'
 alias ir='jupyter console --kernel=ir'
 alias ioctave='jupyter console --kernel=octave'
 
-# Pyenv setup
-status --is-interactive; and source (pyenv init -|psub)
-set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-
 # Environment setup commands
+pyenv init - | source
+pyenv virtualenv-init - | source
 starship init fish | source
