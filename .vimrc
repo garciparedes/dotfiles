@@ -49,6 +49,9 @@ set wildmenu
 set wildmode=full
 
 set termguicolors
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
+
 set nocompatible
 filetype on
 syntax on
@@ -150,6 +153,10 @@ nnoremap <leader>d "*d
 nnoremap <leader>D "*D
 vnoremap <leader>d "*d
 
+" fzf shorcuts
+nnoremap <silent> <C-t> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+
 " Folding settings
 set foldmethod=indent
 set foldlevel=99
@@ -180,7 +187,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " GUI settings
 if has("gui_running")
-    set guifont=Inconsolata\ Nerd\ Font:h13
+    set guifont="Inconsolata\ Nerd\ Font:h13"
     set lines=48 columns=164
     set guioptions=
 endif
@@ -188,12 +195,23 @@ endif
 if has('mouse_sgr')
     set ttymouse=sgr
 endif
-"
+
+source $VIMRUNTIME/mswin.vim
+
+set shell=fish
+tnoremap <Esc> <C-\><C-n>
+
+let g:tex_flavor='latex'
+let g:tex_conceal='abdmg'
+let g:vimtex_compiler_engine='pdflatex'
+let g:vimtex_quickfix_mode=0
 let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-    \   '-pdf',
-    \   '-shell-escape',
-    \   '-verbose',
-    \   '-file-line-error',
-    \ ],
-    \}
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-shell-escape',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+
