@@ -21,7 +21,7 @@ set -x PAGER "less -RF"
 set -x BAT_THEME "TwoDark"
 
 # FZF setup
-set -x FZF_DEFAULT_COMMAND 'ag -g ""'
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 # Virtualenv setup
