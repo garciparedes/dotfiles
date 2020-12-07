@@ -72,7 +72,7 @@ set relativenumber
 set ruler
 
 set mouse=a
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 
 " Always display the status line
 set laststatus=2
@@ -149,9 +149,9 @@ nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
-nnoremap <leader>d "*d
-nnoremap <leader>D "*D
-vnoremap <leader>d "*d
+nnoremap <leader>d "+d
+nnoremap <leader>D "+D
+vnoremap <leader>d "+d
 
 " fzf shorcuts
 nnoremap <silent> <C-t> :Files<CR>
