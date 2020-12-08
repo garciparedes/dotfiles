@@ -34,6 +34,7 @@ Plug 'dense-analysis/ale'
 Plug 'elzr/vim-json'
 Plug 'danro/rename.vim'
 Plug 'lervag/vimtex'
+Plug 'tmux-plugins/vim-tmux'
 
 call plug#end()
 
@@ -72,7 +73,7 @@ set relativenumber
 set ruler
 
 set mouse=a
-set clipboard^=unnamed,unnamedplus
+set clipboard=unnamed,unnamedplus
 
 " Always display the status line
 set laststatus=2
@@ -146,12 +147,14 @@ nnoremap <C-H> <C-W><C-H>
 
 " Better behavior related with removals and buffers.
 nnoremap x "_x
+nnoremap c "_c
+nnoremap C "_C
 nnoremap d "_d
 nnoremap D "_D
-vnoremap d "_d
+nnoremap <leader>c "+c
+nnoremap <leader>C "+C
 nnoremap <leader>d "+d
 nnoremap <leader>D "+D
-vnoremap <leader>d "+d
 
 " fzf shorcuts
 nnoremap <silent> <C-t> :Files<CR>
