@@ -11,11 +11,10 @@ shell:
     - "tmux attach || tmux"
 
 font:
-  size: 14
+  size: 13
   
   normal:
     family: Inconsolata Nerd Font Mono
-    style: Regular
 
   bold:
     family: Inconsolata Nerd Font Mono
@@ -23,7 +22,6 @@ font:
 
   italic:
     family: Inconsolata Nerd Font Mono
-    #style: Italic
 
 custom_cursor_colors: true
 
@@ -57,16 +55,3 @@ colors:
     cyan:    '#56b6c2'
     white:   '#ffffff'
 
-key_bindings:
-  - { key: Q,    mods: Command, action: None }
-  - { key: W,    mods: Command, action: None }
-  # Ajustes para teclado macOS español/Spanish de España con layout ISO (no ANSI); tecla Intro grande.
-  - { key: 10,        mods: Alt,    chars: "\x5c" } # barra invertida `\`
-  - { key: 18,        mods: Alt,    chars: "\x7c" } # barra vertical `|`
-  - { key: Key2,      mods: Alt,    chars: "@" } # arroba `@`
-  - { key: Key3,      mods: Alt,    chars: "#" } # almohadilla/cardinalidad `#`
-  - { key: Key6,      mods: Alt,    chars: "¬" } # negación en lógica `¬`
-  - { key: 39,        mods: Alt,    chars: "{" } # abre llaves `{`
-  - { key: 42,        mods: Alt,    chars: "}" } # cierra llaves `}`
-  - { key: 33,        mods: Alt,    chars: "[" } # abre corchetes `[`
-  - { key: 30,        mods: Alt,    chars: "]" } # cierra corchetes `]`
