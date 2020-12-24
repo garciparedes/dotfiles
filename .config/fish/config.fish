@@ -19,6 +19,7 @@ set -x PAGER "less -RF"
 
 # bat setup
 set -x BAT_THEME "TwoDark"
+alias bat=batcat
 
 # FZF setup
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
