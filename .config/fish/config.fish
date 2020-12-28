@@ -34,7 +34,6 @@ set -x PATH $HOME/bin:$PATH
 set -x PATH /usr/local/sbin:$PATH
 set -x PATH $HOME/.cargo/bin:$PATH
 set -x PATH $HOME/.pyenv/bin:$PATH
-set -x PATH $HOME/.poetry/bin:$PATH
 
 # Ubuntu-specific aliases
 # alias pbcopy='xclip -selection clipboard'
