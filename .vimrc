@@ -159,6 +159,7 @@ nnoremap <leader>D "+D
 " fzf shorcuts
 nnoremap <silent> <C-t> :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
+let g:fzf_layout = { 'down': '40%' }
 
 " Folding settings
 set foldmethod=indent
