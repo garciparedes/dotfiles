@@ -182,6 +182,14 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
+au BufNewFile,BufRead *.html
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
 " Autocompletion settings
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_semantic_triggers = {'c': ['re!.']}
