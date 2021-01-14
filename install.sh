@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Installing system depedencies..."
+
 add-apt-repository universe
 
 apt upgrade
@@ -24,7 +26,15 @@ apt install -y \
   ripgrep \
   lm-sensors \
   xclip \
-  fzf
-  
+  fzf \
+  filezilla \
+  xserver-xephyr \
+  pinta \ 
+  gparted \
+  gimp \ 
+  ncdu \ 
+  xvfb \
+  tree \
+  htop
   
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
