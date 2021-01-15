@@ -73,7 +73,7 @@ set relativenumber
 set ruler
 
 set mouse=a
-set clipboard=unnamed,unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " Always display the status line
 set laststatus=2
