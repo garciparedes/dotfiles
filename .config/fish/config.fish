@@ -39,9 +39,9 @@ set -x PATH $HOME/.cargo/bin:$PATH
 set -x PATH $HOME/.pyenv/bin:$PATH
 
 # Ubuntu-specific aliases
-# alias pbcopy='xclip -selection clipboard'
-# alias pbpaste='xclip -selection clipboard -o'
-# alias open='xdg-open'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias open='xdg-open'
 
 # Global aliases
 alias nodejs=node
