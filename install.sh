@@ -50,7 +50,8 @@ apt install -y \
   tk-dev \
   libffi-dev \
   liblzma-dev \
-  python-openssl
+  python-openssl \
+  net-tools
 
   
 echo "Installing Pyenv..."    
