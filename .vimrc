@@ -35,6 +35,11 @@ Plug 'elzr/vim-json'
 Plug 'danro/rename.vim'
 Plug 'lervag/vimtex'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'vimwiki/vimwiki'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 call plug#end()
 
@@ -195,6 +200,10 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_semantic_triggers = {'c': ['re!.']}
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+let g:vimwiki_list = [{ 
+    \ 'path': '~/google-drive/notes/',
+    \ 'syntax':'markdown', 
+    \ 'ext': '.md' }]
 
 
 " GUI settings
