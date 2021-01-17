@@ -13,6 +13,7 @@ set -x ANDROID_NDK_HOME /usr/local/share/android-ndk
 set -x VISUAL vim
 set -x EDITOR $VISUAL
 alias vi=vim
+alias vimwiki="vim -c VimwikiIndex"
 
 # Pager setup
 set -x PAGER "less -RF"
