@@ -135,11 +135,6 @@ autocmd DirChanged * silent! NERDTreeCWD | wincmd p
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * if argc() == 0 || !isdirectory(argv()[0]) | NERDTree | wincmd w | endif
-augroup END
-
 " Splitting settings
 set splitbelow
 set splitright
