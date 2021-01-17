@@ -156,6 +156,9 @@ nnoremap <leader>C "+C
 nnoremap <leader>d "+d
 nnoremap <leader>D "+D
 
+" language spell checking
+set spell spelllang=en_us
+
 " fzf shorcuts
 nnoremap <silent> <C-t> :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
