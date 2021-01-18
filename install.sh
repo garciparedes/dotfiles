@@ -51,7 +51,8 @@ apt install -y \
   libffi-dev \
   liblzma-dev \
   python-openssl \
-  net-tools
+  net-tools \
+  dconf-editor
 
   
 echo "Installing Pyenv..."    
