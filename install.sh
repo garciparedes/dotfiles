@@ -52,7 +52,9 @@ apt install -y \
   liblzma-dev \
   python-openssl \
   net-tools \
-  dconf-editor
+  dconf-editor \
+  iperf \
+  speedtest-cli
 
   
 echo "Installing Pyenv..."    
