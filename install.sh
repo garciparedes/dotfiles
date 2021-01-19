@@ -55,7 +55,16 @@ apt install -y \
   dconf-editor \
   iperf \
   speedtest-cli
+  
+echo "Installing fisher..."
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
+echo "Installing fisher plugins..."
+fisher install jethrokuan/fzf
+fisher install jorgebucaran/autopair.fish
+
+echo "Installing starship..."
+curl -fsSL https://starship.rs/install.sh | bash
   
 echo "Installing Pyenv..."    
 curl https://pyenv.run | bash
