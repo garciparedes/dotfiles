@@ -54,7 +54,8 @@ apt install -y \
   net-tools \
   dconf-editor \
   iperf \
-  speedtest-cli
+  speedtest-cli \
+  wmctrl
   
 echo "Installing fisher..."
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
