@@ -26,7 +26,7 @@ alias bat=batcat
 alias fd=fdfind
 
 # FZF setup
-set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
+set -x FZF_DEFAULT_COMMAND "rg --files --hidden -g '!.git'"
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 # Virtualenv setup
