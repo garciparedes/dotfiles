@@ -55,7 +55,8 @@ apt install -y \
   dconf-editor \
   iperf \
   speedtest-cli \
-  wmctrl
+  wmctrl \
+  pdftk
   
 echo "Installing fisher..."
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
