@@ -2,6 +2,8 @@
 " garciparedes Vimrc configuration
 """""""""""""""""""""""""""""""""""""
 
+source $VIMRUNTIME/mswin.vim
+
 """" START Vundle Configuration
 call plug#begin('~/.vim/plugged')
 
@@ -214,8 +216,6 @@ endif
 if has('mouse_sgr')
     set ttymouse=sgr
 endif
-
-source $VIMRUNTIME/mswin.vim
 
 set shell=fish
 tnoremap <Esc> <C-\><C-n>
