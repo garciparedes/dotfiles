@@ -5,6 +5,9 @@ set SPACEFISH_PROMPT_ADD_NEWLINE false
 # Shell setup
 set -x TERM xterm-256color
 
+# GPG setup
+set -gx GPG_TTY (tty)
+
 # Android settings
 set -x ANDROID_HOME /usr/local/share/android-sdk
 set -x ANDROID_NDK_HOME /usr/local/share/android-ndk
