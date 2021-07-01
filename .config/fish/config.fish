@@ -32,15 +32,18 @@ alias fd=fdfind
 set -x FZF_DEFAULT_COMMAND "rg --files --hidden -g '!.git'"
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
-# Virtualenv setup
+# Pyenv setup
 # status --is-interactive; and source (pyenv init -|psub)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+set -Ux PYENV_ROOT $HOME/.pyenvs
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
 
 # PATH setup
-set -x PATH $HOME/bin:$PATH
-set -x PATH /usr/local/sbin:$PATH
-set -x PATH $HOME/.cargo/bin:$PATH
-set -x PATH $HOME/.pyenv/bin:$PATH
+set -x PATH $PATH $HOME/bin
+set -x PATH $PATH /usr/local/sbin
+set -x PATH $PATH $HOME/.cargo/bin
+set -x PATH $PATH $HOME/.pyenv/bin
 
 # Ubuntu-specific aliases
 alias pbcopy='xclip -selection clipboard'
@@ -59,6 +62,6 @@ alias ir='jupyter console --kernel=ir'
 alias ioctave='jupyter console --kernel=octave'
 
 # Environment setup commands
+status is-login; and pyenv init --path | source
 pyenv init - | source
-pyenv virtualenv-init - | source
 starship init fish | source
