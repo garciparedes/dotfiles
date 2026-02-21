@@ -1,9 +1,26 @@
 add_newline = false
+command_timeout=5000
+
+[aws]
+disabled = false
+symbol = ''
+
+[direnv]
+disabled = true
 
 [character]
 success_symbol = "[➜](bold green) "
 error_symbol = "[➜](bold red) "
 
+[jobs]
+disabled = true
+
 [time]
 disabled = false
-format = "[$time]($style) "
+format = '[$time]($style) '
+
+[python]
+disabled = true
+
+[shell]
+disabled = false
