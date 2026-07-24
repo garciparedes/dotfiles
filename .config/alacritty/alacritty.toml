@@ -39,8 +39,8 @@ family = "Inconsolata Nerd Font Mono"
 y = 4
 
 [terminal.shell]
-args = ["-l", "-c", "source ~/.zshrc; tmux attach || tmux"]
-program = "/bin/zsh"
+args = ["-c", "tmux new -A -s host"]
+program = "/usr/bin/fish"
 
 [window.dimensions]
 columns = 256
