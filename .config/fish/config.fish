@@ -8,9 +8,18 @@ set -x TERM xterm-256color
 # GPG setup
 set -gx GPG_TTY (tty)
 
+# Brew Setup
+set -x HOMEBREW_NO_ENV_HINTS true
+
 # Android settings
 set -x ANDROID_HOME /usr/local/share/android-sdk
 set -x ANDROID_NDK_HOME /usr/local/share/android-ndk
+
+# Finch Setup
+set -x DOCKER_HOST unix:///Applications/Finch/lima/data/finch/sock/finch.sock
+set -x DOCKER_CONFIG $HOME/.finch
+set -x CDK_DOCKER finch
+alias finch-clean='finch system prune -af --volumes && finch builder prune -af'
 
 # VIM setup
 set -x VISUAL vim
@@ -21,23 +30,22 @@ alias vimwiki="vim -c VimwikiIndex"
 # Pager setup
 set -x PAGER "less -RF"
 
-# bat setup
-set -x BAT_THEME "TwoDark"
-alias bat=batcat
-
-# fd setup
-alias fd=fdfind
+# pager setup
+set -x MANPAGER "col -bx | bat --language=man"
+set -x PAGER "bat --language=md"
 
 # FZF setup
 set -x FZF_DEFAULT_COMMAND "rg --files --hidden -g '!.git'"
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+
+# direnv setup
+set -x DIRENV_LOG_FORMAT ''
 
 # Pyenv setup
 # status --is-interactive; and source (pyenv init -|psub)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -Ux PYENV_ROOT $HOME/.pyenvs
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-
 
 # PATH setup
 set -x PATH $PATH $HOME/bin
