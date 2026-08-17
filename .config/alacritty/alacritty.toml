@@ -22,25 +22,36 @@ magenta = '#c678dd'
 cyan    = '#56b6c2'
 white   = '#ffffff'
 
+[colors.cursor]
+background = '#abb2bf'
+foreground = '#282c34'
+
 [font]
-size = 16
+size = 17
 
 [font.bold]
-family = "Inconsolata Nerd Font Mono"
+family = "Inconsolata Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "Inconsolata Nerd Font Mono"
+family = "Inconsolata Nerd Font"
 
 [font.normal]
-family = "Inconsolata Nerd Font Mono"
+family = "Inconsolata Nerd Font"
 
 [font.offset]
-y = 4
+x = 1
+y = 8
+
+[font.glyph_offset]
+y = 2
 
 [terminal.shell]
 args = ["-c", "tmux new -A -s host"]
-program = "/usr/bin/fish"
+program = "/opt/homebrew/bin/fish"
+
+[window]
+dynamic_padding = true
 
 [window.dimensions]
 columns = 256
@@ -57,3 +68,8 @@ mods = "Command"
 action = "None"
 
 [terminal]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
